@@ -22,16 +22,16 @@ class SimpsonDataset(Dataset):
                 transforms.RandomRotation(degrees=(-30, 30)),
                 transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
                 transforms.ToTensor(),
-                transforms.Normalize([0.4620, 0.4077, 0.3526],
-                                     [0.2559, 0.2335, 0.2644])
+                transforms.Normalize([0.4621, 0.4078, 0.3531],
+                                     [0.2559, 0.2337, 0.2644])
             ])
         else:
             self.transform = transforms.Compose([
                 transforms.ToPILImage(),
                 transforms.Resize(size=(224, 224)),
                 transforms.ToTensor(),
-                transforms.Normalize([0.4620, 0.4077, 0.3526],
-                                     [0.2559, 0.2335, 0.2644])
+                transforms.Normalize([0.4621, 0.4078, 0.3531],
+                                     [0.2559, 0.2337, 0.2644])
             ])
 
     def __len__(self):

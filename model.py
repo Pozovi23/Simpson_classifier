@@ -16,10 +16,12 @@ class Model(nn.Module):
         return self.CNN(img1)
 
 
-def train(model, device, train_loader, val_loader, epochs=10, batch_size=8):
-    # torch_writer = SummaryWriter("runs/Simpsons")
+def train(model, device, train_loader, val_loader, path_to_save_model, epochs=50, batch_size=64):
+    writer = SummaryWriter("runs/Simpsons")
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
+    iteration_train = 0
+    iteration_validation = 0
     for epoch in range(epochs):
         model.train()
         for image, label in train_loader:
@@ -28,6 +30,8 @@ def train(model, device, train_loader, val_loader, epochs=10, batch_size=8):
             optimizer.zero_grad()
             output = model(image)
             loss = criterion(output, label)
+            writer.add_scalar("Loss/train", loss, iteration_train)
+            iteration_train+=1
             loss.backward()
             optimizer.step()
 
@@ -38,5 +42,10 @@ def train(model, device, train_loader, val_loader, epochs=10, batch_size=8):
                 label = label.to(device)
                 output = model(image)
                 loss = criterion(output, label)
-                print(loss)
-        print(1)
+                writer.add_scalar("Loss/validation", loss, iteration_validation)
+                iteration_validation+= 1
+
+        print(f'Number of epoch: {epoch}')
+
+    writer.close()
+    torch.save(model.state_dict(), path_to_save_model)
