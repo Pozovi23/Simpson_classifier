@@ -16,11 +16,10 @@ class Model(nn.Module):
         return self.CNN(img1)
 
 
-def train(model, device, train_loader, val_loader, epochs=10, batch_size=64):
+def train(model, device, train_loader, val_loader, epochs=10, batch_size=8):
     # torch_writer = SummaryWriter("runs/Simpsons")
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
-
     for epoch in range(epochs):
         model.train()
         for image, label in train_loader:

@@ -19,7 +19,7 @@ def main():
 
     model = Model().to(device)
 
-    # train(model, device, train_loader, val_loader, 5, 64)
+    train(model, device, train_loader, val_loader, 5, 64)
 
 
 main()

@@ -14,7 +14,6 @@ def mean_and_std():
 
     with open("./simpson_train_set.csv", "r") as csvfile:
         reader = csv.reader(csvfile)
-        head = next(reader)
         for line in reader:
             amount_of_pictures += 1
             image = cv2.imread(line[1])
@@ -35,7 +34,6 @@ def mean_and_std():
 
     with open("./simpson_train_set.csv", "r") as csvfile:
         reader = csv.reader(csvfile)
-        head = next(reader)
         for line in reader:
             image = cv2.imread(line[1])
             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -54,5 +52,5 @@ def mean_and_std():
     return mean_r / 255, mean_g / 255, mean_b / 255, std_r, std_g, std_b
 
 a = mean_and_std()
-# (np.float64(0.46163061468389277), np.float64(0.4077513816138124), np.float64(0.35285404562546374), 0.25390915078568144, 0.23188857935755067, 0.2637118078077209)
+# (np.float64(0.462083760971867), np.float64(0.4077015420783059), np.float64(0.35267590164042995), 0.2559683222516806, 0.23356302701158047, 0.264484009298371)
 print(a)

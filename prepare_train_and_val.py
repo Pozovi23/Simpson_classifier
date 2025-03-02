@@ -1,6 +1,7 @@
 import os
 import csv
 import matplotlib.pyplot as plt
+import random
 
 from check_data import find_duplicates
 from check_data import check_file_extension
@@ -26,23 +27,29 @@ def prepare_train_val_csv():
     duplicates = find_duplicates(main_path)
     labels = {}
     make_labels_dict(labels)
+
+    folder_and_files = {}
+
+    for folder in sorted(os.listdir(main_path)):
+        files = os.listdir(main_path + '/' + folder)
+        random.shuffle(files)
+        folder_and_files[folder] = files
+
     with open("./simpson_train_set.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["Number_of_class", "Path_to_img"])
-        for folder in sorted(os.listdir(main_path)):
-            files = sorted(os.listdir(main_path + '/' + folder))
-            for i in range(int(len(files) * 0.85)):
-                current_path = main_path + '/' + folder + '/' + files[i]
+        for folder in sorted(folder_and_files.keys()):
+            files_for_train = folder_and_files[folder][:int(len(folder_and_files[folder]) * 0.85)]
+            for file in files_for_train:
+                current_path = main_path + '/' + folder + '/' + file
                 if (current_path not in duplicates) and (current_path not in files_with_wrong_extension):
                     writer.writerow([labels[folder], current_path])
 
     with open("./simpson_validation_set.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["Number_of_class", "Path_to_img"])
-        for folder in sorted(os.listdir(main_path)):
-            files = sorted(os.listdir(main_path + '/' + folder))
-            for i in range(int(len(files) * 0.85), len(files)):
-                current_path = main_path + '/' + folder + '/' + files[i]
+        for folder in sorted(folder_and_files.keys()):
+            files_for_validation = folder_and_files[folder][int(len(folder_and_files[folder]) * 0.85) : len(folder_and_files[folder])]
+            for file in files_for_validation:
+                current_path = main_path + '/' + folder + '/' + file
                 if (current_path not in duplicates) and (current_path not in files_with_wrong_extension):
                     writer.writerow([labels[folder], current_path])
 
@@ -51,7 +58,6 @@ def show_difference():
     classes_and_amount_of_pictures = {}
     with open("./simpson_train_set.csv", "r") as csvfile:
         reader = csv.reader(csvfile)
-        head = next(reader)
         for line in reader:
             if classes_and_amount_of_pictures.get(int(line[0])) is None:
                 classes_and_amount_of_pictures[int(line[0])] = 1
@@ -75,3 +81,7 @@ def show_difference():
         plt.text(bars[i].get_x() + bars[i].get_width() / 2, yval + 0.5, str(image_counts[i]), ha='center', va='bottom', rotation=90)
 
     plt.savefig('hist.png')
+
+
+prepare_train_val_csv()
+show_difference()
