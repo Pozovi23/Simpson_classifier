@@ -26,7 +26,7 @@ def main():
 def test():
     device = 'cuda'
     model = Model().to(device)
-    model.load_state_dict(torch.load('iteration2.pth'))
+    model.load_state_dict(torch.load('iteration1.pth'))
     test_files = []
     test_path = "simpson_test_set.csv"
     with open(test_path, 'r') as csvfile:
@@ -53,14 +53,11 @@ def test():
             y_true.extend(label.cpu().numpy())
             y_pred.extend(output.cpu().numpy().argmax(-1))
 
-    f1_macro = metrics.f1_score(y_true, y_pred, average='macro')  # Среднее по классам
-    f1_micro = metrics.f1_score(y_true, y_pred,
-                        average='micro')  # Учитывает общее количество истинных положительных, ложных положительных и ложных отрицательных
-    f1_weighted = metrics.f1_score(y_true, y_pred, average='weighted')  # Учитывает поддержку каждого класса
+    target_names = []
+    for number_of_class in range(42):
+        target_names.append(str(number_of_class))
 
-    print(f'F1 Macro: {f1_macro}')
-    print(f'F1 Micro: {f1_micro}')
-    print(f'F1 Weighted: {f1_weighted}')
+    print(metrics.classification_report(y_true, y_pred, target_names=target_names))
 
 
 main()
