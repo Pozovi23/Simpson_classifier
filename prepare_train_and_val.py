@@ -83,5 +83,5 @@ def show_difference():
     plt.savefig('hist.png')
 
 
-prepare_train_val_csv()
+# prepare_train_val_csv()
 show_difference()

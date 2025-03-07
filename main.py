@@ -18,15 +18,14 @@ def main():
     val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False)
 
     model = Model().to(device)
-    model.load_state_dict(torch.load('iteration1.pth'))
 
-    train(model, device, train_loader, val_loader, "iteration2.pth",  5, 64)
+    train(model, device, train_loader, val_loader, "iteration3.pth",  50)
 
 
 def test():
     device = 'cuda'
     model = Model().to(device)
-    model.load_state_dict(torch.load('iteration1.pth'))
+    model.load_state_dict(torch.load('iteration2.pth'))
     test_files = []
     test_path = "simpson_test_set.csv"
     with open(test_path, 'r') as csvfile:
@@ -36,7 +35,7 @@ def test():
 
     test_dataset = SimpsonDataset(test_files, state="test")
 
-    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
+    test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
     model.eval()
 
@@ -61,4 +60,4 @@ def test():
 
 
 main()
-test()
+# test()

@@ -62,3 +62,6 @@ def show_difference():
         plt.text(bars[i].get_x() + bars[i].get_width() / 2, yval + 0.5, str(image_counts[i]), ha='center', va='bottom', rotation=90)
 
     plt.savefig('hist.png')
+
+
+show_difference()
