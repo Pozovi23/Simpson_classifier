@@ -11,26 +11,8 @@ NSU Artificial intelligence task
 <div style="display: flex; justify-content: center; align-items: flex-start;">
   <div style="text-align: center; margin-right: 20px;">
       <div>Тренировочная + валидационная</div>
-      <img src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png" width="300" />
-  </div>
-  <div style="text-align: center;">
-      <div>Тестовая</div>
-      <img src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20testset%20BEFORE%20adding%20new%20photos.png" width="300" />
+      <img align="left" src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png" width="300" />
+      <img align="right" src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20testset%20BEFORE%20adding%20new%20photos.png" width="300" />
   </div>
 </div>
 
-
-
-<div style="display: flex; justify-content: space-around;">
-
-  <div style="flex: 1; text-align: center;">
-    <img src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png" alt="Тренировочная + валидационная" style="max-width: 100%; height: auto;">
-    <p>Тренировочная + валидационная</p>
-  </div>
-
-  <div style="flex: 1; text-align: center;">
-    <img src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20testset%20BEFORE%20adding%20new%20photos.png" alt="Тестовая" style="max-width: 100%; height: auto;">
-    <p>Тестовая</p>
-  </div>
-
-</div>
