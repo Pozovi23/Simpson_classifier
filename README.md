@@ -12,7 +12,7 @@ NSU Artificial intelligence task
 ![](https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png)  |  ![](https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20testset%20BEFORE%20adding%20new%20photos.png)
 
 
-Такая ситуация мне не понравилась и я решил добавить фоток. Ситуация после добавления:
+Такая ситуация мне не понравилась. Я решил добавить картинок в тренировочный датасет в 10, 19, 26, 40 классы, в тестовый в классы где было 0 картинок. Ситуация после добавления: 
 
 Тренировочная + валидационная            |   Тестовая
 :-------------------------:|:-------------------------:
