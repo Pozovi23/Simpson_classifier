@@ -13,4 +13,4 @@ NSU Artificial intelligence task
       <img align="left" src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png" width="350" />
       <img align="right" src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20testset%20BEFORE%20adding%20new%20photos.png" width="350" />
 </div>
-
+<p style="text-align: center;">Подпись под изображениями: Тренировочная и тестовая выборки</p>
