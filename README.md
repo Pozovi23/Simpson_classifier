@@ -49,3 +49,7 @@
 Loss / train    |
 :-------------------------:|
 ![](https://github.com/Pozovi23/Simpson_classifier/blob/main/loss_train.png)  |  
+
+Loss / validation    |
+:-------------------------:|
+![](https://github.com/Pozovi23/Simpson_classifier/blob/main/loss_validation.png)  |  
