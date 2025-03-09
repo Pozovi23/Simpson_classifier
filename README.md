@@ -9,6 +9,6 @@ NSU Artificial intelligence task
 
 Тренировочная + валидационная:
 <p float="left">
-  <img src="images/image1.png" width="200" />
-  <img src="images/image2.png" width="200" />
+  <img src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png" width="200" />
+  <img src="url_второго_изображения" width="200" />
 </p>
