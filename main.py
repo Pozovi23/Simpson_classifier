@@ -1,13 +1,16 @@
+import csv
+
+import sklearn.metrics as metrics
 import torch
+from torch.utils.data import DataLoader
+
+from model import Model, train
 from simpson_dataset import SimpsonDataset
 from train_val_separate import train_val_get
-from torch.utils.data import DataLoader
-from model import Model, train
-import csv
-import sklearn.metrics as metrics
+
 
 def main():
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    device = "cuda" if torch.cuda.is_available() else "cpu"
 
     train_files, validation_files = train_val_get()
 
@@ -19,16 +22,16 @@ def main():
 
     model = Model().to(device)
 
-    train(model, device, train_loader, val_loader, "iteration3.pth",  50)
+    train(model, device, train_loader, val_loader, "last", 30)
 
 
 def test():
-    device = 'cuda'
+    device = "cuda"
     model = Model().to(device)
-    model.load_state_dict(torch.load('iteration2.pth'))
+    model.load_state_dict(torch.load("last.pth"))
     test_files = []
     test_path = "simpson_test_set.csv"
-    with open(test_path, 'r') as csvfile:
+    with open(test_path, "r") as csvfile:
         reader = csv.reader(csvfile)
         for line in reader:
             test_files.append(line)
@@ -39,8 +42,7 @@ def test():
 
     model.eval()
 
-    y_true = []
-    y_pred = []
+    y_true, y_pred = [], []
 
     with torch.no_grad():
         for image, label in test_loader:
@@ -59,5 +61,5 @@ def test():
     print(metrics.classification_report(y_true, y_pred, target_names=target_names))
 
 
-main()
-# test()
+# main()
+test()

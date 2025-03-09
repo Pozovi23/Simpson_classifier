@@ -1,13 +1,12 @@
-import os
 import csv
-import matplotlib.pyplot as plt
+import os
 import random
 
-from check_data import find_duplicates
-from check_data import check_file_extension
+import matplotlib.pyplot as plt
 
+from check_data import check_file_extension, find_duplicates
 
-main_path = 'data/simpsons_dataset'
+main_path = "data/simpsons_dataset"
 
 
 def make_labels_dict(labels):
@@ -31,32 +30,50 @@ def prepare_train_val_csv():
     folder_and_files = {}
 
     for folder in sorted(os.listdir(main_path)):
-        files = os.listdir(main_path + '/' + folder)
+        files = os.listdir(main_path + "/" + folder)
         random.shuffle(files)
         folder_and_files[folder] = files
 
     with open("./simpson_train_set.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
         for folder in sorted(folder_and_files.keys()):
-            files_for_train = folder_and_files[folder][:int(len(folder_and_files[folder]) * 0.85)]
+            files_for_train = folder_and_files[folder][
+                : int(len(folder_and_files[folder]) * 0.85)
+            ]
             for file in files_for_train:
-                current_path = main_path + '/' + folder + '/' + file
-                if (current_path not in duplicates) and (current_path not in files_with_wrong_extension):
+                current_path = main_path + "/" + folder + "/" + file
+                if (current_path not in duplicates) and (
+                    current_path not in files_with_wrong_extension
+                ):
                     writer.writerow([labels[folder], current_path])
 
     with open("./simpson_validation_set.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
         for folder in sorted(folder_and_files.keys()):
-            files_for_validation = folder_and_files[folder][int(len(folder_and_files[folder]) * 0.85) : len(folder_and_files[folder])]
+            files_for_validation = folder_and_files[folder][
+                int(len(folder_and_files[folder]) * 0.85) : len(
+                    folder_and_files[folder]
+                )
+            ]
             for file in files_for_validation:
-                current_path = main_path + '/' + folder + '/' + file
-                if (current_path not in duplicates) and (current_path not in files_with_wrong_extension):
+                current_path = main_path + "/" + folder + "/" + file
+                if (current_path not in duplicates) and (
+                    current_path not in files_with_wrong_extension
+                ):
                     writer.writerow([labels[folder], current_path])
 
 
 def show_difference():
     classes_and_amount_of_pictures = {}
     with open("./simpson_train_set.csv", "r") as csvfile:
+        reader = csv.reader(csvfile)
+        for line in reader:
+            if classes_and_amount_of_pictures.get(int(line[0])) is None:
+                classes_and_amount_of_pictures[int(line[0])] = 1
+            else:
+                classes_and_amount_of_pictures[int(line[0])] += 1
+
+    with open("./simpson_validation_set.csv", "r") as csvfile:
         reader = csv.reader(csvfile)
         for line in reader:
             if classes_and_amount_of_pictures.get(int(line[0])) is None:
@@ -71,16 +88,23 @@ def show_difference():
 
     plt.figure(figsize=(12, 11))
     bars = plt.bar(all_classes, image_counts, width=0.8)
-    plt.xlabel('Классы')
-    plt.ylabel('Количество картинок')
-    plt.title('Количество картинок в каждом классе')
+    plt.xlabel("Классы")
+    plt.ylabel("Количество картинок")
+    plt.title("Количество картинок в каждом классе")
     plt.xticks(all_classes, labels=[str(c) for c in all_classes], rotation=0)
 
     for i in range(len(image_counts)):
         yval = bars[i].get_height()
-        plt.text(bars[i].get_x() + bars[i].get_width() / 2, yval + 0.5, str(image_counts[i]), ha='center', va='bottom', rotation=90)
+        plt.text(
+            bars[i].get_x() + bars[i].get_width() / 2,
+            yval + 0.5,
+            str(image_counts[i]),
+            ha="center",
+            va="bottom",
+            rotation=90,
+        )
 
-    plt.savefig('hist.png')
+    plt.savefig("hist.png")
 
 
 # prepare_train_val_csv()
