@@ -10,9 +10,10 @@ NSU Artificial intelligence task
 
 <div style="display: flex; justify-content: center; align-items: flex-start;">
   <div style="text-align: center; margin-right: 20px;">
-      <div>Тренировочная + валидационная</div>
-      <img align="left" src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png" width="300" />
-      <img align="right" src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20testset%20BEFORE%20adding%20new%20photos.png" width="300" />
+      <div> align="left"Тренировочная + валидационная</div>
+      <div> align="right"Тестовая</div>
+      <img align="left" src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png" width="400" />
+      <img align="right" src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20testset%20BEFORE%20adding%20new%20photos.png" width="400" />
   </div>
 </div>
 
