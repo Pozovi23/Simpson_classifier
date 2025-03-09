@@ -105,4 +105,4 @@ Loss / validation    |
 
 Visualisation    |
 :-------------------------:|
-![](https://github.com/Pozovi23/Simpson_classifier/blob/main/pictures/loss_validation.png)  | 
+![](https://github.com/Pozovi23/Simpson_classifier/blob/main/pictures/test.png)  | 
