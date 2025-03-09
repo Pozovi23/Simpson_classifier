@@ -10,14 +10,14 @@
 
 Тренировочный    |   Тестовый
 :-------------------------:|:-------------------------:
-![](https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png)  |  ![](https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20testset%20BEFORE%20adding%20new%20photos.png)
+![](https://github.com/Pozovi23/Simpson_classifier/blob/main/pictures/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png)  |  ![](https://github.com/Pozovi23/Simpson_classifier/blob/main/pictures/distribution%20of%20photos%20in%20testset%20BEFORE%20adding%20new%20photos.png)
 
 
 Такая ситуация мне не понравилась. Я решил добавить картинок в тренировочный датасет в 10, 19, 26, 40 классы, в тестовый в классы где было 0 картинок. Ситуация после добавления: 
 
 Тренировочный   |   Тестовый
 :-------------------------:|:-------------------------:
-![](https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20AFTER%20adding%20new%20photos.png)  |  ![](https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20testset%20AFTER%20adding%20new%20photos.png)
+![](https://github.com/Pozovi23/Simpson_classifier/blob/main/pictures/distribution%20of%20photos%20in%20train%2Bvalidation%20AFTER%20adding%20new%20photos.png)  |  ![](https://github.com/Pozovi23/Simpson_classifier/blob/main/pictures/distribution%20of%20photos%20in%20testset%20AFTER%20adding%20new%20photos.png)
 
 После этого был написан скрипт для поиска повторок в тренировочном + валидационном датасете. Искал с помощью хеш-функции. Оказалось 6 пар повторяющихся:
 
@@ -48,11 +48,11 @@
 
 Loss / train    |
 :-------------------------:|
-![](https://github.com/Pozovi23/Simpson_classifier/blob/main/loss_train.png)  |  
+![](https://github.com/Pozovi23/Simpson_classifier/blob/main/pictures/loss_train.png)  |  
 
 Loss / validation    |
 :-------------------------:|
-![](https://github.com/Pozovi23/Simpson_classifier/blob/main/loss_validation.png)  |  
+![](https://github.com/Pozovi23/Simpson_classifier/blob/main/pictures/loss_validation.png)  |  
 
 ### Результаты на тестовом датасете
 
