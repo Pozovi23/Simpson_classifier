@@ -28,3 +28,7 @@ NSU Artificial intelligence task
 | Rainier Wolfcastle   | `data/simpsons_dataset/rainier_wolfcastle/pic_0016.jpg`   | `data/simpsons_dataset/rainier_wolfcastle/pic_0011.jpg`   |
 | Mayor Quimby         | `data/simpsons_dataset/mayor_quimby/pic_0054.jpg`         | `data/simpsons_dataset/mayor_quimby/pic_0176.jpg`         |
 | Waylon Smithers      | `data/simpsons_dataset/waylon_smithers/pic_0038.jpg`      | `data/simpsons_dataset/waylon_smithers/pic_0051.jpg`      |
+
+Далее исключая повторки разделил весь датасет на тренировочную и валидационную. При этом я брал из каждой папки с конкретным симпсоном рандомно 85% фото в тренировочную, а остальные 15% в валидационную. Таким образом, добился равномерности в процентном соотношении фото для каждого героя между train и validation в каждом классе.
+
+После этого высчитал среднее по тренировочному датасету и стандартное отклонение.
