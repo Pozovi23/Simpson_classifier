@@ -10,7 +10,7 @@ def read_image(img_path):
 
 
 class SimpsonDataset(Dataset):
-    def __init__(self, files, state="train"):
+    def __init__(self, files, state):
         self.img_labels = files
         self.state = state
         if state == "train":

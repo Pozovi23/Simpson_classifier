@@ -7,6 +7,7 @@ from torch.utils.data import DataLoader
 from model import Model, train
 from simpson_dataset import SimpsonDataset
 from train_val_separate import train_val_get
+from visualise_results import visualise_results
 
 
 def main():
@@ -42,7 +43,7 @@ def test():
 
     model.eval()
 
-    y_true, y_pred = [], []
+    y_true, y_pred, images = [], [], []
 
     with torch.no_grad():
         for image, label in test_loader:
@@ -53,12 +54,14 @@ def test():
 
             y_true.extend(label.cpu().numpy())
             y_pred.extend(output.cpu().numpy().argmax(-1))
+            images.append(image)
 
     target_names = []
     for number_of_class in range(42):
         target_names.append(str(number_of_class))
 
     print(metrics.classification_report(y_true, y_pred, target_names=target_names))
+    visualise_results(images, y_true, y_pred)
 
 
 # main()

@@ -102,3 +102,7 @@ Loss / validation    |
 | 41               | 1.00      | 0.90   | 0.95     |
 | **macro avg**    | **0.94** | **0.88** | **0.90** |
 | **weighted avg** | **0.94** | **0.94** | **0.94** |
+
+Visualisation    |
+:-------------------------:|
+![](https://github.com/Pozovi23/Simpson_classifier/blob/main/pictures/loss_validation.png)  | 
