@@ -8,7 +8,9 @@ NSU Artificial intelligence task
 Для тренировочной + валидационной выборок использовались фото из директории data/simpson_dataset/, а для тестовой из data/kaggle_simpson_testset
 
 
-<div style="display: inline-block; text-align: center; margin-right: 20px;">
-  <div>Тренировочная + валидационная</div>
-  <img src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png" width="400" />
+<div style="display: flex; justify-content: center; align-items: flex-start;">
+  <div style="text-align: center; margin-right: 20px;">
+      <div>Тренировочная + валидационная</div>
+      <img src="https://github.com/Pozovi23/Simpson_classifier/blob/main/distribution%20of%20photos%20in%20train%2Bvalidation%20BEFORE%20adding%20new%20photos.png" width="400" />
+  </div>
 </div>
